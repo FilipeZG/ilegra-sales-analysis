@@ -39,15 +39,15 @@ public class DataProcessor {
         return new ResultData(sale, worstSalesman, clientAmount, salesmanAmount);
     }
 
-    private String getWorstSalesman(List<Data> salesman) {
-        return salesman.stream()
-                       .map(s -> (Sale) s)
-                       .collect(Collectors.groupingBy(Sale::getSalesmanName,
-                                                      Collectors.reducing(BigDecimal.ZERO, Sale::getPrice, BigDecimal::add)))
-                       .entrySet().stream()
-                                  .min(Map.Entry.comparingByValue())
-                                  .get()
-                                  .getKey();
+    private String getWorstSalesman(List<Data> sales) {
+        return sales.stream()
+                    .map(s -> (Sale) s)
+                    .collect(Collectors.groupingBy(Sale::getSalesmanName,
+                                                   Collectors.reducing(BigDecimal.ZERO, Sale::getPrice, BigDecimal::add)))
+                    .entrySet().stream()
+                               .min(Map.Entry.comparingByValue())
+                               .get()
+                               .getKey();
     }
 
     private Sale mostExpensiveSale(List<Data> sales) {
