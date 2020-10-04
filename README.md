@@ -1,4 +1,4 @@
-# ilegra-sales-analysis
+# Ilegra Sales Analysis
 
 Para compilar e rodar esse código é necessário ter instalado Java 8 e Maven.
 
